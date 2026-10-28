@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yarin Shechter CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<!--
+  Source for cv.pdf. Same look as index.html (NYU violet, Source Serif 4, IBM Plex Mono tags).
+  After editing, rebuild the PDF with:  python3 build_cv.py
+-->
+<style>
+  @page { size: Letter; margin: 0.62in 0.72in 0.6in; }
+  :root {
+    --ink: #1C1724;
+    --muted: #5E5868;
+    --rule: #E3DEEA;
+    --accent: #57068C;          /* NYU violet */
+    --accent-line: #C9B3DD;
+    --tag-bg: #EFE7F6;
+    --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    margin: 0;
+    background: #fff;
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 10.6pt;
+    line-height: 1.42;
+  }
+  @media screen {
+    body { background: #ECE8F2; }
+    .sheet {
+      width: 8.5in; min-height: 11in;
+      margin: 24px auto; padding: 0.62in 0.72in 0.6in;
+      background: #fff; box-shadow: 0 1px 4px rgba(28, 23, 36, 0.15);
+    }
+  }
+  a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: var(--accent-line);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+  .nw { white-space: nowrap; }
+  p { margin: 0; }
+
+  /* Header */
+  h1 {
+    font-weight: 600;
+    font-size: 27pt;
+    font-variation-settings: "opsz" 60;
+    letter-spacing: -0.01em;
+    line-height: 1.05;
+    margin: 0 0 5pt;
+  }
+  .role { color: var(--muted); font-size: 11pt; margin: 0 0 7pt; }
+  .contact {
+    display: flex; flex-wrap: wrap; align-items: center;
+    gap: 3pt 15pt;
+    margin: 0; padding: 0; list-style: none;
+  }
+  .contact a { display: inline-flex; align-items: center; gap: 4pt; }
+  .contact .email { font-family: var(--mono); font-size: 9.2pt; }
+  .contact .brand { width: 10.5pt; height: 10.5pt; flex: none; }
+  .contact svg {
+    width: 10.5pt; height: 10.5pt; flex: none;
+    fill: none; stroke: var(--accent); stroke-width: 1.7;
+    stroke-linecap: round; stroke-linejoin: round;
+  }
+
+  /* Sections */
+  section { margin-top: 13pt; }
+  h2 {
+    font-weight: 600;
+    font-size: 12.5pt;
+    font-variation-settings: "opsz" 30;
+    margin: 0 0 7pt;
+    padding-bottom: 3pt;
+    border-bottom: 1px solid var(--rule);
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: 14pt;
+    margin: 0 0 7pt;
+  }
+  .row:last-child { margin-bottom: 0; }
+  .when { color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .detail { color: var(--muted); grid-column: 1 / -1; }
+  .detail i, .detail .what { color: var(--ink); }
+  .row { break-inside: avoid; }
+  h2 { break-after: avoid; }
+
+  /* Publications */
+  .note { font-style: italic; font-size: 9.4pt; color: var(--muted); margin: -2pt 0 8pt; }
+  .pubs { list-style: none; margin: 0; padding: 0; }
+  .pub { margin: 0 0 8pt; break-inside: avoid; }
+  .pub:last-child { margin-bottom: 0; }
+  .pub .title { font-weight: 600; line-height: 1.3; margin: 0 0 1.5pt; }
+  .pub .title a:not([href]) { color: var(--accent); }
+  .pub .me { font-weight: 600; white-space: nowrap; }
+  .pub .venue { margin-top: 2.5pt; font-size: 10pt; }
+  .tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 7.9pt;
+    font-weight: 500;
+    line-height: 1;
+    color: var(--accent);
+    background: var(--tag-bg);
+    padding: 2.6pt 4.5pt 2pt;
+    border-radius: 3pt;
+    margin-right: 5pt;
+    vertical-align: 0.6pt;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+  .tag.award { color: #fff; background: var(--accent); }
+
+  footer { margin-top: 10pt; font-size: 8.6pt; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <header>
+    <h1>Yarin Shechter</h1>
+    <p class="role">PhD student in Computer Science and Engineering, NYU Tandon School of Engineering</p>
+    <ul class="contact">
+      <li><a class="email" href="mailto:yarin.shechter@nyu.edu">yarin.shechter@nyu.edu</a></li>
+      <li><a href="https://yarin-shechter.github.io"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>yarin-shechter.github.io</a></li>
+      <li><a href="https://scholar.google.com/citations?user=i-gOVGkAAAAJ"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9.5 12 4.5l10 5-10 5z"/><path d="M6 11.5v4.3c0 1.4 2.7 2.9 6 2.9s6-1.5 6-2.9v-4.3"/><path d="M22 9.5v5"/></svg>Google Scholar</a></li>
+      <li><a href="https://dblp.org/pid/367/4012.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.5c2.5-1 5.5-1 9 1 3.5-2 6.5-2 9-1v13c-2.5-1-5.5-1-9 1-3.5-2-6.5-2-9-1z"/><path d="M12 6.5v13"/></svg>DBLP</a></li>
+      <li><a href="https://github.com/yarin-shechter"><img class="brand" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTgiIGhlaWdodD0iOTYiIHZpZXdCb3g9IjAgMCA5OCA5NiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwXzczMF8yNzEyNikiPgo8cGF0aCBkPSJNNDEuNDM5NSA2OS4zODQ4QzI4LjgwNjYgNjcuODUzNSAxOS45MDYyIDU4Ljc2MTcgMTkuOTA2MiA0Ni45OTAyQzE5LjkwNjIgNDIuMjA1MSAyMS42Mjg5IDM3LjAzNzEgMjQuNSAzMy41OTE4QzIzLjI1NTkgMzAuNDMzNiAyMy40NDczIDIzLjczNDQgMjQuODgyOCAyMC45NTlDMjguNzEwOSAyMC40ODA1IDMzLjg3ODkgMjIuNDkwMiAzNi45NDE0IDI1LjI2NTZDNDAuNTc4MSAyNC4xMTcyIDQ0LjQwNjIgMjMuNTQzIDQ5LjA5NTcgMjMuNTQzQzUzLjc4NTIgMjMuNTQzIDU3LjYxMzMgMjQuMTE3MiA2MS4wNTg2IDI1LjE2OTlDNjQuMDI1NCAyMi40OTAyIDY5LjI4OTEgMjAuNDgwNSA3My4xMTcyIDIwLjk1OUM3NC40NTcgMjMuNTQzIDc0LjY0ODQgMzAuMjQyMiA3My40MDQzIDMzLjQ5NjFDNzYuNDY2OCAzNy4xMzI4IDc4LjA5MzcgNDIuMDEzNyA3OC4wOTM3IDQ2Ljk5MDJDNzguMDkzNyA1OC43NjE3IDY5LjE5MzQgNjcuNjYyMSA1Ni4zNjkxIDY5LjI4OTFDNTkuNjIzIDcxLjM5NDUgNjEuODI0MiA3NS45ODgzIDYxLjgyNDIgODEuMjUyTDYxLjgyNDIgOTEuMjA1MUM2MS44MjQyIDk0LjA3NjIgNjQuMjE2OCA5NS43MDMxIDY3LjA4NzkgOTQuNTU0N0M4NC40MTAyIDg3Ljk1MTIgOTggNzAuNjI4OSA5OCA0OS4xOTE0Qzk4IDIyLjEwNzQgNzUuOTg4MyA2LjY5NTM5ZS0wNyA0OC45MDQzIDQuMzA5ZS0wN0MyMS44MjAzIDEuOTIyNjFlLTA3IC0xLjk0NzllLTA3IDIyLjEwNzQgLTQuMzM0M2UtMDcgNDkuMTkxNEMtNi4yMDYzMWUtMDcgNzAuNDM3NSAxMy40OTQxIDg4LjA0NjkgMzEuNjc3NyA5NC42NTA0QzM0LjI2MTcgOTUuNjA3NCAzNi43NSA5My44ODQ4IDM2Ljc1IDkxLjMwMDhMMzYuNzUgODMuNjQ0NUMzNS40MTAyIDg0LjIxODggMzMuNjg3NSA4NC42MDE2IDMyLjE1NjIgODQuNjAxNkMyNS44Mzk4IDg0LjYwMTYgMjIuMTA3NCA4MS4xNTYzIDE5LjQyNzcgNzQuNzQ0MUMxOC4zNzUgNzIuMTYwMiAxNy4yMjY2IDcwLjYyODkgMTUuMDI1NCA3MC4zNDE4QzEzLjg3NyA3MC4yNDYxIDEzLjQ5NDEgNjkuNzY3NiAxMy40OTQxIDY5LjE5MzRDMTMuNDk0MSA2OC4wNDQ5IDE1LjQwODIgNjcuMTgzNiAxNy4zMjIzIDY3LjE4MzZDMjAuMDk3NyA2Ny4xODM2IDIyLjQ5MDIgNjguOTA2MyAyNC45Nzg1IDcyLjQ0NzNDMjYuODkyNiA3NS4yMjI3IDI4LjkwMjMgNzYuNDY2OCAzMS4yOTQ5IDc2LjQ2NjhDMzMuNjg3NSA3Ni40NjY4IDM1LjIxODcgNzUuNjA1NSAzNy40MTk5IDczLjQwNDNDMzkuMDQ2OSA3MS43NzczIDQwLjI5MSA3MC4zNDE4IDQxLjQzOTUgNjkuMzg0OFoiIGZpbGw9ImJsYWNrIi8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfNzMwXzI3MTI2Ij4KPHJlY3Qgd2lkdGg9Ijk4IiBoZWlnaHQ9Ijk2IiBmaWxsPSJ3aGl0ZSIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo=" alt="" width="14" height="14">GitHub</a></li>
+    </ul>
+  </header>
+
+  <section>
+    <h2>Education</h2>
+    <div class="row">
+      <p><b>New York University</b>, Tandon School of Engineering</p>
+      <p class="when">Sep 2024 – present</p>
+      <p class="detail">PhD in Computer Science and Engineering. Advisor: <a href="https://engineering.nyu.edu/faculty/martin-farach-colton">Martín <span class="nw">Farach-Colton</span></a></p>
+    </div>
+    <div class="row">
+      <p><b>Weizmann Institute of Science</b>, Rehovot, Israel</p>
+      <p class="when">Oct 2021 – Jan 2024</p>
+      <p class="detail">M.Sc. in Computer Science. Advisor: <a href="https://www.weizmann.ac.il/math/AmirAbboud/">Amir Abboud</a></p>
+      <p class="detail">Thesis: <i>Faster Combinatorial <span class="nw">k-Clique</span> Algorithms</i></p>
+    </div>
+    <div class="row">
+      <p><b>Reichman University</b>, Herzliya, Israel</p>
+      <p class="when">Oct 2017 – Oct 2020</p>
+      <p class="detail">B.Sc. in Computer Science</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Publications</h2>
+    <p class="note">Authors are listed alphabetically, following the convention in theoretical computer science.</p>
+    <ol class="pubs">
+
+      <li class="pub">
+        <!-- ARXIV: once the paper is on arXiv, add href="https://arxiv.org/abs/ARXIV-ID" to the title link below. -->
+        <p class="title"><a>Fast Sparse <span class="nw"><i>α</i>-Navigable</span> Graph Construction with Improved Resource Augmentation</a></p>
+        <p>Alex Conway, Laxman Dhulipala, Martín <span class="nw">Farach-Colton</span>, Ben Landrum, Christopher Musco, <span class="me">Yarin Shechter</span>, Torsten Suel, Richard Wen</p>
+        <p class="venue"><a class="tag" href="https://www.siam.org/conferences-events/siam-conferences/soda27/program/accepted-papers/">SODA 2027</a>ACM-SIAM Symposium on Discrete Algorithms, to appear</p>
+      </li>
+
+      <li class="pub">
+        <p class="title"><a href="https://arxiv.org/abs/2603.12211">Bounding the Fragmentation of B-Trees Subject to Batched Insertions</a></p>
+        <p>Michael A. Bender, Aaron Bernstein, Nairen Cao, Alex Conway, Martín <span class="nw">Farach-Colton</span>, Hanna Komlós, <span class="me">Yarin Shechter</span>, Nicole Wein</p>
+        <p class="venue"><a class="tag" href="https://doi.org/10.1145/3801894">PODS 2026</a>Proceedings of the ACM on Management of Data, vol. 4, no. 2</p>
+      </li>
+
+      <li class="pub">
+        <p class="title"><a href="https://arxiv.org/abs/2507.13296">Efficiently Constructing Sparse Navigable Graphs</a></p>
+        <p>Alex Conway, Laxman Dhulipala, Martín <span class="nw">Farach-Colton</span>, Rob Johnson, Ben Landrum, Christopher Musco, <span class="me">Yarin Shechter</span>, Torsten Suel, Richard Wen</p>
+        <p class="venue"><a class="tag" href="https://doi.org/10.1137/1.9781611978971.59">SODA 2026</a>ACM-SIAM Symposium on Discrete Algorithms, pp. 1631–1665</p>
+      </li>
+
+      <li class="pub">
+        <p class="title"><a href="https://arxiv.org/abs/2401.13502">Faster Combinatorial <span class="nw">k-Clique</span> Algorithms</a></p>
+        <p>Amir Abboud, Nick Fischer, <span class="me">Yarin Shechter</span></p>
+        <p class="venue"><a class="tag" href="https://doi.org/10.1007/978-3-031-55598-5_13">LATIN 2024</a><a class="tag award" href="https://www.latintcs.org/lopez-ortiz-prize.html">Best Paper Award</a>Latin American Theoretical Informatics, pp. 193–206</p>
+        <p class="venue"><a class="tag" href="https://doi.org/10.1007/s00453-026-01390-8">Algorithmica</a>Journal version, vol. 88, no. 3, 2026</p>
+      </li>
+
+    </ol>
+  </section>
+
+  <section>
+    <h2>Honors &amp; Awards</h2>
+    <div class="row">
+      <p><b>Alejandro López-Ortiz Best Paper Award</b>, LATIN 2024</p>
+      <p class="when">2024</p>
+      <p class="detail">For <i>Faster Combinatorial <span class="nw">k-Clique</span> Algorithms</i>, with Amir Abboud and Nick Fischer</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Teaching Experience</h2>
+    <div class="row">
+      <p><b>Google and Reichman Tech School</b>, Herzliya, Israel</p>
+      <p class="when">2023</p>
+      <p class="detail"><span class="what">Lecturer, Data Structures.</span> Taught the data structures course of a full-stack developer
+        training program, and wrote its materials, homework and exams.</p>
+    </div>
+    <div class="row">
+      <p><b>Google and Reichman Tech School</b>, Herzliya, Israel</p>
+      <p class="when">2021</p>
+      <p class="detail"><span class="what">Teaching Assistant, Data Structures.</span> Led recitations, graded, and reviewed course materials.</p>
+    </div>
+    <div class="row">
+      <p><b>Reichman University</b>, Herzliya, Israel</p>
+      <p class="when">2019 – 2021</p>
+      <p class="detail"><span class="what">Teaching Assistant.</span> Computability and Complexity, Discrete Mathematics, Logic and Set Theory,
+        and Introduction to Computer Graphics.</p>
+    </div>
+  </section>
+
+  <footer>Last updated October 2026</footer>
+</div>
+</body>
+</html>
